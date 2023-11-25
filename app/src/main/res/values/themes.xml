@@ -3,7 +3,19 @@
     <style name="Base.Theme.TvSeriesAppLevel3" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/custom_yellow</item>
     </style>
 
     <style name="Theme.TvSeriesAppLevel3" parent="Base.Theme.TvSeriesAppLevel3" />
+
+
+    <style name="LoginTextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <item name="boxStrokeColor">@color/custom_white</item>
+        <item name="boxStrokeWidth">2dp</item>
+        <item name="colorControlNormal">@color/custom_white</item>
+        <item name="colorControlActivated">@color/custom_white</item>
+        <item name="colorControlHighlight">@color/custom_white</item>
+        <item name="android:textColorHint">@color/custom_white_hint</item>
+    </style>
+
 </resources>
