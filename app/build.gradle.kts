@@ -87,5 +87,11 @@ dependencies {
     implementation ("com.github.bumptech.glide:glide:4.14.2")
     kapt ("com.github.bumptech.glide:compiler:4.13.2")
 
+
+    //for textLayout Color change
+    implementation ("androidx.legacy:legacy-support-v4:1.0.0")
+    implementation ("com.google.android.material:material:1.10.0")
+    //Material Design
+    implementation ("com.google.android.material:material:1.12.0-alpha01")
 }
 
