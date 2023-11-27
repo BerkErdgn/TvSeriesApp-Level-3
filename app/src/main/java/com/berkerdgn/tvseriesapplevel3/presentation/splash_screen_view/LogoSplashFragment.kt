@@ -24,10 +24,19 @@ class LogoSplashFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-       
+        Handler(Looper.getMainLooper()).postDelayed({
+            if (onBoardingIsFinished()){
+                findNavController().navigate(R.id.action_logoSplashFragment_to_loginFragment)
+            }else{
+                findNavController().navigate(R.id.action_logoSplashFragment_to_onBoardingFragment)
+            }
+        },3000)
         return inflater.inflate(R.layout.fragment_logo_splash, container, false)
     }
 
 
-
+    private fun onBoardingIsFinished():Boolean{
+        val sharedPreferences = requireActivity().getSharedPreferences("onBoarding",Context.MODE_PRIVATE)
+        return sharedPreferences.getBoolean("finished",false)
+    }
 }
