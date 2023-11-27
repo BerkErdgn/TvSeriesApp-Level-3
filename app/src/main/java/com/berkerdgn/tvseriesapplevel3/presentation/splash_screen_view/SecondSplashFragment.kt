@@ -38,6 +38,7 @@ class SecondSplashFragment : Fragment() {
             onBoardingIsFinish()
         }
 
+
     }
 
     private fun onBoardingIsFinish(){
