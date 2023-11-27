@@ -3,11 +3,45 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav"
-    app:startDestination="@id/loginFragment">
-
+    app:startDestination="@id/logoSplashFragment">
+    <fragment
+        android:id="@+id/logoSplashFragment"
+        android:name="com.berkerdgn.tvseriesapplevel3.presentation.splash_screen_view.LogoSplashFragment"
+        android:label="fragment_logo_splash"
+        tools:layout="@layout/fragment_logo_splash" />
+    <fragment
+        android:id="@+id/fistSplashFragment2"
+        android:name="com.berkerdgn.tvseriesapplevel3.presentation.splash_screen_view.FistSplashFragment"
+        android:label="fragment_fist_splash"
+        tools:layout="@layout/fragment_fist_splash" />
+    <fragment
+        android:id="@+id/onBoardingFragment"
+        android:name="com.berkerdgn.tvseriesapplevel3.presentation.splash_screen_view.OnBoardingFragment"
+        android:label="fragment_on_boarding"
+        tools:layout="@layout/fragment_on_boarding" />
+    <fragment
+        android:id="@+id/secondSplashFragment"
+        android:name="com.berkerdgn.tvseriesapplevel3.presentation.splash_screen_view.SecondSplashFragment"
+        android:label="fragment_second_splash"
+        tools:layout="@layout/fragment_second_splash" />
+    <fragment
+        android:id="@+id/thirdSplashFragment"
+        android:name="com.berkerdgn.tvseriesapplevel3.presentation.splash_screen_view.ThirdSplashFragment"
+        android:label="fragment_third_splash"
+        tools:layout="@layout/fragment_third_splash" />
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.berkerdgn.tvseriesapplevel3.presentation.login_view.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" />
+    <fragment
+        android:id="@+id/signupFragment"
+        android:name="com.berkerdgn.tvseriesapplevel3.presentation.signup_view.SignupFragment"
+        android:label="fragment_signup"
+        tools:layout="@layout/fragment_signup" />
+    <fragment
+        android:id="@+id/secondMainFragment"
+        android:name="com.berkerdgn.tvseriesapplevel3.presentation.second_main_screen.SecondMainFragment"
+        android:label="fragment_second_main"
+        tools:layout="@layout/fragment_second_main" />
 </navigation>
