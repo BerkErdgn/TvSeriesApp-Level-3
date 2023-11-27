@@ -93,5 +93,11 @@ dependencies {
     implementation ("com.google.android.material:material:1.10.0")
     //Material Design
     implementation ("com.google.android.material:material:1.12.0-alpha01")
+
+    //for lottie
+    implementation ("com.airbnb.android:lottie:3.4.0")
+
+    //for dots
+    implementation("com.tbuonomo:dotsindicator:5.0")
 }
 
