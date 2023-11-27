@@ -8,7 +8,14 @@
         android:id="@+id/logoSplashFragment"
         android:name="com.berkerdgn.tvseriesapplevel3.presentation.splash_screen_view.LogoSplashFragment"
         android:label="fragment_logo_splash"
-        tools:layout="@layout/fragment_logo_splash" />
+        tools:layout="@layout/fragment_logo_splash" >
+        <action
+            android:id="@+id/action_logoSplashFragment_to_onBoardingFragment"
+            app:destination="@id/onBoardingFragment" />
+        <action
+            android:id="@+id/action_logoSplashFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
     <fragment
         android:id="@+id/fistSplashFragment2"
         android:name="com.berkerdgn.tvseriesapplevel3.presentation.splash_screen_view.FistSplashFragment"
@@ -24,11 +31,6 @@
         android:name="com.berkerdgn.tvseriesapplevel3.presentation.splash_screen_view.SecondSplashFragment"
         android:label="fragment_second_splash"
         tools:layout="@layout/fragment_second_splash" />
-    <fragment
-        android:id="@+id/thirdSplashFragment"
-        android:name="com.berkerdgn.tvseriesapplevel3.presentation.splash_screen_view.ThirdSplashFragment"
-        android:label="fragment_third_splash"
-        tools:layout="@layout/fragment_third_splash" />
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.berkerdgn.tvseriesapplevel3.presentation.login_view.LoginFragment"
