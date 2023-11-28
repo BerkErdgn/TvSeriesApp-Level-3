@@ -5,29 +5,26 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.FragmentManager
 import com.berkerdgn.tvseriesapplevel3.R
+import com.berkerdgn.tvseriesapplevel3.databinding.FragmentSecondMainBinding
+import com.berkerdgn.tvseriesapplevel3.presentation.home_screen.HomeFragment
+import com.berkerdgn.tvseriesapplevel3.presentation.search_screen.SearchFragment
+import com.berkerdgn.tvseriesapplevel3.presentation.social_screen.SocialFragment
+import com.berkerdgn.tvseriesapplevel3.presentation.user_screen.UserFragment
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [SecondMainFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class SecondMainFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+
+    private  var _binding : FragmentSecondMainBinding ?= null
+    private val binding get() = _binding!!
+
+    private lateinit var navView : BottomNavigationView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+
     }
 
     override fun onCreateView(
@@ -35,26 +32,36 @@ class SecondMainFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_second_main, container, false)
+        _binding = FragmentSecondMainBinding.inflate(inflater,container,false)
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment SecondMainFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            SecondMainFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        replace(HomeFragment())
+
+        binding.navView.setOnItemSelectedListener {
+            when(it.itemId){
+                R.id.navigation_home -> replace(HomeFragment())
+                R.id.navigation_search -> replace(SearchFragment())
+                R.id.navigation_social -> replace(SocialFragment())
+                R.id.navigation_profile -> replace(UserFragment())
+
             }
+            true
+        }
+
     }
+
+
+    private fun replace(fragment: Fragment){
+        val fragmentManager = requireActivity().supportFragmentManager
+        val fragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.navHostFrameLayout,fragment)
+        fragmentTransaction.commit()
+
+    }
+
 }
