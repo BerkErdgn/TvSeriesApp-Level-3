@@ -78,7 +78,7 @@ class SignupFragment : Fragment() {
                     .show()
             }
         }
-
+  
     }
 
     
