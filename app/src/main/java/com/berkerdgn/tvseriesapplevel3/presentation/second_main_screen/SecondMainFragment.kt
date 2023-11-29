@@ -5,22 +5,29 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.FragmentManager
 import com.berkerdgn.tvseriesapplevel3.R
 import com.berkerdgn.tvseriesapplevel3.databinding.FragmentSecondMainBinding
 import com.berkerdgn.tvseriesapplevel3.presentation.home_screen.HomeFragment
+import com.berkerdgn.tvseriesapplevel3.presentation.home_screen.adapter.AllTvSeriesAdapter
+import com.berkerdgn.tvseriesapplevel3.presentation.home_screen.adapter.TodayTvSeriesAdapter
 import com.berkerdgn.tvseriesapplevel3.presentation.search_screen.SearchFragment
 import com.berkerdgn.tvseriesapplevel3.presentation.social_screen.SocialFragment
 import com.berkerdgn.tvseriesapplevel3.presentation.user_screen.UserFragment
+import com.bumptech.glide.RequestManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 
-class SecondMainFragment : Fragment() {
+class SecondMainFragment @Inject constructor(
+    val todayTvSeriesAdapter : TodayTvSeriesAdapter,
+    val allTvSeriesAdapter: AllTvSeriesAdapter
+) : Fragment() {
 
     private  var _binding : FragmentSecondMainBinding ?= null
     private val binding get() = _binding!!
 
-    private lateinit var navView : BottomNavigationView
+    //private lateinit var navView : BottomNavigationView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,11 +47,11 @@ class SecondMainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        replace(HomeFragment())
+        replace(HomeFragment(todayTvSeriesAdapter,allTvSeriesAdapter))
 
         binding.navView.setOnItemSelectedListener {
             when(it.itemId){
-                R.id.navigation_home -> replace(HomeFragment())
+                R.id.navigation_home -> replace(HomeFragment(todayTvSeriesAdapter,allTvSeriesAdapter))
                 R.id.navigation_search -> replace(SearchFragment())
                 R.id.navigation_social -> replace(SocialFragment())
                 R.id.navigation_profile -> replace(UserFragment())
