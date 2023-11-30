@@ -1,4 +1,6 @@
-package com.berke.mytvseriesapplevel2.models.todayModels
+package com.berkerdgn.tvseriesapplevel3.data.remote.model.todayModels
+
+
 
 data class Show(
 

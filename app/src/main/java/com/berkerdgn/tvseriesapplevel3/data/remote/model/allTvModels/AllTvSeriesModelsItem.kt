@@ -1,4 +1,4 @@
-package com.berke.mytvseriesapplevel2.models.allTvModels
+package com.berkerdgn.tvseriesapplevel3.data.remote.model.allTvModels
 
 data class AllTvSeriesModelsItem(
 
@@ -7,4 +7,4 @@ data class AllTvSeriesModelsItem(
     val genres: List<String>,
     val image: İmage,
 
-)
+    )

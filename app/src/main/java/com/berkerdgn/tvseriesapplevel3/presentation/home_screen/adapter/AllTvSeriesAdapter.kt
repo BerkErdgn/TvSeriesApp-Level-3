@@ -5,8 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.berke.mytvseriesapplevel2.models.allTvModels.AllTvSeriesModelsItem
-import com.berkerdgn.tvseriesapplevel3.R
+import com.berkerdgn.tvseriesapplevel3.data.remote.model.allTvModels.AllTvSeriesModelsItem
 import com.berkerdgn.tvseriesapplevel3.databinding.AllTvSeriesRawBinding
 import com.bumptech.glide.RequestManager
 import javax.inject.Inject

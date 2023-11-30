@@ -1,4 +1,4 @@
-package com.berke.mytvseriesapplevel2.models.oneEpisodesModels
+package com.berkerdgn.tvseriesapplevel3.data.remote.model.oneEpisodesModels
 
 data class İmage(
     val medium: String,

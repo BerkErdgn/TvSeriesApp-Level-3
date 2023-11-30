@@ -1,4 +1,4 @@
-package com.berke.mytvseriesapplevel2.models.tvSeriesModels
+package com.berkerdgn.tvseriesapplevel3.data.remote.model.tvSeriesModels
 
 
 data class TvSeriesModels(
@@ -19,4 +19,4 @@ data class TvSeriesModels(
     val _embedded: Embedded,
 
 
-)
+    )

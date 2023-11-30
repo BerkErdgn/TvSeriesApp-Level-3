@@ -1,13 +1,11 @@
 package com.berkerdgn.tvseriesapplevel3.presentation.home_screen.adapter
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.berke.mytvseriesapplevel2.models.todayModels.TodaysTvSeriesModels
-import com.berke.mytvseriesapplevel2.models.todayModels.TodaysTvSeriesModelsItem
+import com.berkerdgn.tvseriesapplevel3.data.remote.model.todayModels.TodaysTvSeriesModelsItem
 import com.berkerdgn.tvseriesapplevel3.databinding.TodayImageRawBinding
 import com.bumptech.glide.RequestManager
 import javax.inject.Inject
