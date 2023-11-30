@@ -1,8 +1,10 @@
 package com.berkerdgn.tvseriesapplevel3.data.remote
 
 
-import com.berke.mytvseriesapplevel2.models.allTvModels.AllTvSeriesModels
-import com.berke.mytvseriesapplevel2.models.todayModels.TodaysTvSeriesModels
+
+import com.berkerdgn.tvseriesapplevel3.data.remote.model.allTvModels.AllTvSeriesModels
+import com.berkerdgn.tvseriesapplevel3.data.remote.model.searchModels.SearchTvSeriesModels
+import com.berkerdgn.tvseriesapplevel3.data.remote.model.todayModels.TodaysTvSeriesModels
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -27,5 +29,8 @@ interface TvSeriesApi {
 
     @GET("schedule/web")
     suspend fun getTodayTvSeries(@Query("data") data : String) : Response<TodaysTvSeriesModels>
+
+    @GET("search/shows")
+    suspend fun getSearchTvSeries(@Query("q") q : String) : Response<SearchTvSeriesModels>
 
 }

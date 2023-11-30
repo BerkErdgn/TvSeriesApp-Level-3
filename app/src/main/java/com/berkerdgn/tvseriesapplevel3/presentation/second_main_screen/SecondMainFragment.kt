@@ -11,6 +11,7 @@ import com.berkerdgn.tvseriesapplevel3.presentation.home_screen.HomeFragment
 import com.berkerdgn.tvseriesapplevel3.presentation.home_screen.adapter.AllTvSeriesAdapter
 import com.berkerdgn.tvseriesapplevel3.presentation.home_screen.adapter.TodayTvSeriesAdapter
 import com.berkerdgn.tvseriesapplevel3.presentation.search_screen.SearchFragment
+import com.berkerdgn.tvseriesapplevel3.presentation.search_screen.adapter.SearchTvSeriesAdapter
 import com.berkerdgn.tvseriesapplevel3.presentation.social_screen.SocialFragment
 import com.berkerdgn.tvseriesapplevel3.presentation.user_screen.UserFragment
 import com.bumptech.glide.RequestManager
@@ -20,8 +21,9 @@ import javax.inject.Inject
 
 
 class SecondMainFragment @Inject constructor(
-    val todayTvSeriesAdapter : TodayTvSeriesAdapter,
-    val allTvSeriesAdapter: AllTvSeriesAdapter
+    private val todayTvSeriesAdapter : TodayTvSeriesAdapter,
+    private val allTvSeriesAdapter: AllTvSeriesAdapter,
+    private val searchTvSeriesAdapter: SearchTvSeriesAdapter
 ) : Fragment() {
 
     private  var _binding : FragmentSecondMainBinding ?= null
@@ -52,7 +54,7 @@ class SecondMainFragment @Inject constructor(
         binding.navView.setOnItemSelectedListener {
             when(it.itemId){
                 R.id.navigation_home -> replace(HomeFragment(todayTvSeriesAdapter,allTvSeriesAdapter))
-                R.id.navigation_search -> replace(SearchFragment())
+                R.id.navigation_search -> replace(SearchFragment(searchTvSeriesAdapter))
                 R.id.navigation_social -> replace(SocialFragment())
                 R.id.navigation_profile -> replace(UserFragment())
 

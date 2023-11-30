@@ -1,6 +1,6 @@
-package com.berke.mytvseriesapplevel2.models.todayModels
+package com.berkerdgn.tvseriesapplevel3.data.remote.model.todayModels
 
-import com.berke.mytvseriesapplevel2.models.todayModels.Show
+
 
 data class Embedded(
     val show: Show

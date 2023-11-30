@@ -1,3 +1,3 @@
-package com.berke.mytvseriesapplevel2.models.allTvModels
+package com.berkerdgn.tvseriesapplevel3.data.remote.model.allTvModels
 
 class AllTvSeriesModels : ArrayList<AllTvSeriesModelsItem>()
