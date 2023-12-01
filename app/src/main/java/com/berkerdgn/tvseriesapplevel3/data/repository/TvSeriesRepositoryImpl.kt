@@ -5,6 +5,7 @@ import com.berkerdgn.tvseriesapplevel3.data.remote.model.todayModels.TodaysTvSer
 import com.berkerdgn.tvseriesapplevel3.data.remote.TvSeriesApi
 import com.berkerdgn.tvseriesapplevel3.data.remote.model.allTvModels.AllTvSeriesModels
 import com.berkerdgn.tvseriesapplevel3.data.remote.model.searchModels.SearchTvSeriesModels
+import com.berkerdgn.tvseriesapplevel3.data.remote.model.tvSeriesModels.TvSeriesModels
 import com.berkerdgn.tvseriesapplevel3.util.Resource
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -59,6 +60,22 @@ class TvSeriesRepositoryImpl @Inject constructor(
                 }
             }catch (e:Exception){
                 Resource.error(e.localizedMessage,data = null)
+            }
+        }
+
+    override suspend fun getOneTvSeries(idTvSeries: String): Resource<TvSeriesModels> =
+        withContext(Dispatchers.IO){
+            return@withContext try {
+                val response = tvSeriesApi.getOneTvSeries(idTvSeries)
+                if (response.isSuccessful){
+                    response.body()?.let {
+                        return@let Resource.success(it)
+                    }?: Resource.error("Error",data = null)
+                }else{
+                    Resource.error("Error", data = null)
+                }
+            }catch (e:Exception){
+                Resource.error("Error", data = null)
             }
         }
 

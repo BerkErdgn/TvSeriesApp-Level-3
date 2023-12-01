@@ -5,8 +5,10 @@ package com.berkerdgn.tvseriesapplevel3.data.remote
 import com.berkerdgn.tvseriesapplevel3.data.remote.model.allTvModels.AllTvSeriesModels
 import com.berkerdgn.tvseriesapplevel3.data.remote.model.searchModels.SearchTvSeriesModels
 import com.berkerdgn.tvseriesapplevel3.data.remote.model.todayModels.TodaysTvSeriesModels
+import com.berkerdgn.tvseriesapplevel3.data.remote.model.tvSeriesModels.TvSeriesModels
 import retrofit2.Response
 import retrofit2.http.GET
+import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface TvSeriesApi {
@@ -32,5 +34,8 @@ interface TvSeriesApi {
 
     @GET("search/shows")
     suspend fun getSearchTvSeries(@Query("q") q : String) : Response<SearchTvSeriesModels>
+
+    @GET("shows/{idTvSeries}?embed=cast")
+    suspend fun getOneTvSeries(@Path("idTvSeries")idTvSeries: String) : Response<TvSeriesModels>
 
 }
