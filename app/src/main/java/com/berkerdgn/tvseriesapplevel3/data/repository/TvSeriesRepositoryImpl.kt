@@ -4,6 +4,8 @@ package com.berkerdgn.tvseriesapplevel3.data.repository
 import com.berkerdgn.tvseriesapplevel3.data.remote.model.todayModels.TodaysTvSeriesModels
 import com.berkerdgn.tvseriesapplevel3.data.remote.TvSeriesApi
 import com.berkerdgn.tvseriesapplevel3.data.remote.model.allTvModels.AllTvSeriesModels
+import com.berkerdgn.tvseriesapplevel3.data.remote.model.crewModels.CrewModel
+import com.berkerdgn.tvseriesapplevel3.data.remote.model.episodesModels.EpisodesModel
 import com.berkerdgn.tvseriesapplevel3.data.remote.model.searchModels.SearchTvSeriesModels
 import com.berkerdgn.tvseriesapplevel3.data.remote.model.tvSeriesModels.TvSeriesModels
 import com.berkerdgn.tvseriesapplevel3.util.Resource
@@ -76,6 +78,38 @@ class TvSeriesRepositoryImpl @Inject constructor(
                 }
             }catch (e:Exception){
                 Resource.error("Error", data = null)
+            }
+        }
+
+    override suspend fun getTvShowEpisodes(idTvSeries: String): Resource<EpisodesModel> =
+        withContext(Dispatchers.IO){
+            return@withContext try {
+                val response = tvSeriesApi.getTvShowEpisodes(idTvSeries)
+                if (response.isSuccessful){
+                    response.body()?.let {
+                        return@let Resource.success(it)
+                    }?: Resource.error("Error",data = null)
+                }else{
+                    Resource.error("Error",data = null)
+                }
+            }catch (e:Exception){
+                Resource.error(e.localizedMessage,data = null)
+            }
+        }
+
+    override suspend fun getTvShowCrew(idTvSeries: String): Resource<CrewModel> =
+        withContext(Dispatchers.IO){
+            return@withContext try {
+                val response = tvSeriesApi.getTvShowCrew(idTvSeries)
+                if (response.isSuccessful){
+                    response.body()?.let {
+                        return@let Resource.success(it)
+                    }?: Resource.error("Error", data = null)
+                }else{
+                    Resource.error("Error", data = null)
+                }
+            }catch (e:Exception){
+                Resource.error(e.localizedMessage, data = null)
             }
         }
 
