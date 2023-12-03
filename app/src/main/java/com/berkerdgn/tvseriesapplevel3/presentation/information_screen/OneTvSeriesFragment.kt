@@ -7,12 +7,18 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import com.berkerdgn.tvseriesapplevel3.R
+import com.berkerdgn.tvseriesapplevel3.presentation.information_screen.adapter.CastAdapter
+import com.berkerdgn.tvseriesapplevel3.presentation.information_screen.adapter.CrewAdapter
+import com.berkerdgn.tvseriesapplevel3.presentation.information_screen.adapter.SeasonsAdapter
 import com.berkerdgn.tvseriesapplevel3.presentation.information_screen.viewmodel.OneTvSeriesViewModel
-import com.berkerdgn.tvseriesapplevel3.util.Resource
 import com.berkerdgn.tvseriesapplevel3.util.Status
+import javax.inject.Inject
 
-
-class OneTvSeriesFragment  : Fragment() {
+class OneTvSeriesFragment @Inject constructor(
+    private val castAdapter: CastAdapter,
+    private val crewAdapter: CrewAdapter,
+    private val seasonsAdapter: SeasonsAdapter
+) : Fragment() {
 
     private lateinit var oneTvSeriesViewModel: OneTvSeriesViewModel
 
@@ -39,6 +45,40 @@ class OneTvSeriesFragment  : Fragment() {
     private fun observeLiveDataForOneTvSeriesModel(idTvSeries: String){
         oneTvSeriesViewModel.getOneTvSeries(idTvSeries)
         oneTvSeriesViewModel.onTvSeries.observe(viewLifecycleOwner) {
+            when(it.status){
+                Status.SUCCESS->{
+
+                }
+                Status.LOADING->{
+
+                }
+                Status.ERROR->{
+
+                }
+            }
+        }
+    }
+
+    private fun observeLiveDataTvShowEpisodes(idTvSeries:String){
+        oneTvSeriesViewModel.getTvShowEpisodes(idTvSeries)
+        oneTvSeriesViewModel.onTvShowEpisodesList.observe(viewLifecycleOwner){
+            when(it.status){
+                Status.SUCCESS ->{
+
+                }
+                Status.LOADING->{
+
+                }
+                Status.ERROR->{
+
+                }
+            }
+        }
+    }
+
+    private fun observeLiveDataTvShowCrews(idTvSeries:String){
+        oneTvSeriesViewModel.getTvShowCrews(idTvSeries)
+        oneTvSeriesViewModel.oneTvSeriesCrewList.observe(viewLifecycleOwner){
             when(it.status){
                 Status.SUCCESS->{
 
