@@ -2,11 +2,14 @@ package com.berkerdgn.tvseriesapplevel3.presentation.home_screen.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.berkerdgn.tvseriesapplevel3.data.remote.model.todayModels.TodaysTvSeriesModelsItem
 import com.berkerdgn.tvseriesapplevel3.databinding.TodayImageRawBinding
+import com.berkerdgn.tvseriesapplevel3.presentation.home_screen.viewmodel.HomeFragmentViewModel
+import com.berkerdgn.tvseriesapplevel3.presentation.second_main_screen.SecondMainFragmentDirections
 import com.bumptech.glide.RequestManager
 import javax.inject.Inject
 
@@ -53,10 +56,14 @@ class TodayTvSeriesAdapter @Inject constructor(
         val design = holder.view
         val tvShow = todayTvSeriesList[position]
 
-        val imageView = design.todayImage
+        design.todayCardView.setOnClickListener {
+            val action  = SecondMainFragmentDirections.actionSecondMainFragmentToOneTvSeriesFragment(tvShow.id.toString())
+            Navigation.findNavController(it).navigate(action)
+        }
+
 
         try {
-            glide.load(tvShow._embedded.show.image.original).into(imageView)
+            glide.load(tvShow._embedded.show.image.original).into(design.todayImage)
         }catch (e:Exception){
 
         }
