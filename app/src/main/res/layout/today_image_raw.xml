@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/todayCardView"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -8,7 +8,7 @@
         android:id="@+id/todayImage"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scaleType="fitXY"/>
+        android:scaleType="fitXY" />
 
 
 </androidx.cardview.widget.CardView>

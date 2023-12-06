@@ -2,11 +2,13 @@ package com.berkerdgn.tvseriesapplevel3.presentation.home_screen.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.berkerdgn.tvseriesapplevel3.data.remote.model.allTvModels.AllTvSeriesModelsItem
 import com.berkerdgn.tvseriesapplevel3.databinding.AllTvSeriesRawBinding
+import com.berkerdgn.tvseriesapplevel3.presentation.second_main_screen.SecondMainFragmentDirections
 import com.bumptech.glide.RequestManager
 import javax.inject.Inject
 
@@ -53,6 +55,12 @@ class AllTvSeriesAdapter @Inject constructor(
 
         design.nameText.text= tvShow.name
         design.contentText.text = tvShow.genres.joinToString (",")
+
+
+        design.allTvShowLinearLayout.setOnClickListener {
+            val action = SecondMainFragmentDirections.actionSecondMainFragmentToOneTvSeriesFragment(tvShow.id.toString())
+            Navigation.findNavController(it).navigate(action)
+        }
 
         try {
             glide.load(tvShow.image.medium).into(design.showImage)

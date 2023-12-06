@@ -8,11 +8,13 @@ import com.berkerdgn.tvseriesapplevel3.data.remote.model.episodesModels.Episodes
 import com.berkerdgn.tvseriesapplevel3.data.remote.model.tvSeriesModels.TvSeriesModels
 import com.berkerdgn.tvseriesapplevel3.data.repository.TvSeriesRepositoryImpl
 import com.berkerdgn.tvseriesapplevel3.util.Resource
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+@HiltViewModel
 class OneTvSeriesViewModel @Inject constructor(
     private val tvSeriesRepositoryImpl: TvSeriesRepositoryImpl
 ): ViewModel() {

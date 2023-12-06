@@ -70,5 +70,50 @@
         android:id="@+id/secondMainFragment"
         android:name="com.berkerdgn.tvseriesapplevel3.presentation.second_main_screen.SecondMainFragment"
         android:label="fragment_second_main"
-        tools:layout="@layout/fragment_second_main" />
+        tools:layout="@layout/fragment_second_main" >
+        <action
+            android:id="@+id/action_secondMainFragment_to_oneTvSeriesFragment"
+            app:destination="@id/oneTvSeriesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.berkerdgn.tvseriesapplevel3.presentation.home_screen.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_oneTvSeriesFragment"
+            app:destination="@id/oneTvSeriesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/userFragment"
+        android:name="com.berkerdgn.tvseriesapplevel3.presentation.user_screen.UserFragment"
+        android:label="fragment_user"
+        tools:layout="@layout/fragment_user" >
+        <action
+            android:id="@+id/action_userFragment_to_oneTvSeriesFragment"
+            app:destination="@id/oneTvSeriesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/socialFragment"
+        android:name="com.berkerdgn.tvseriesapplevel3.presentation.social_screen.SocialFragment"
+        android:label="fragment_social"
+        tools:layout="@layout/fragment_social" />
+    <fragment
+        android:id="@+id/oneTvSeriesFragment"
+        android:name="com.berkerdgn.tvseriesapplevel3.presentation.information_screen.OneTvSeriesFragment"
+        android:label="fragment_one_tv_series"
+        tools:layout="@layout/fragment_one_tv_series" >
+        <argument
+            android:name="idTvSeries"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.berkerdgn.tvseriesapplevel3.presentation.search_screen.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_searchFragment_to_oneTvSeriesFragment"
+            app:destination="@id/oneTvSeriesFragment" />
+    </fragment>
 </navigation>
