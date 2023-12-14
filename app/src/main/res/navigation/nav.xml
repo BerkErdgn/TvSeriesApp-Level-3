@@ -106,6 +106,12 @@
         <argument
             android:name="idTvSeries"
             app:argType="string" />
+        <action
+            android:id="@+id/action_oneTvSeriesFragment_to_peopleFragment"
+            app:destination="@id/peopleFragment" />
+        <action
+            android:id="@+id/action_oneTvSeriesFragment_to_episodeFragment"
+            app:destination="@id/episodeFragment" />
     </fragment>
     <fragment
         android:id="@+id/searchFragment"
@@ -115,5 +121,19 @@
         <action
             android:id="@+id/action_searchFragment_to_oneTvSeriesFragment"
             app:destination="@id/oneTvSeriesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/episodeFragment"
+        android:name="com.berkerdgn.tvseriesapplevel3.presentation.episode_screen.EpisodeFragment"
+        android:label="fragment_episode"
+        tools:layout="@layout/fragment_episode" />
+    <fragment
+        android:id="@+id/peopleFragment"
+        android:name="com.berkerdgn.tvseriesapplevel3.presentation.people_screen.PeopleFragment"
+        android:label="fragment_people"
+        tools:layout="@layout/fragment_people" >
+        <argument
+            android:name="idPeople"
+            app:argType="string" />
     </fragment>
 </navigation>

@@ -6,6 +6,7 @@ import com.berkerdgn.tvseriesapplevel3.data.remote.TvSeriesApi
 import com.berkerdgn.tvseriesapplevel3.data.remote.model.allTvModels.AllTvSeriesModels
 import com.berkerdgn.tvseriesapplevel3.data.remote.model.crewModels.CrewModel
 import com.berkerdgn.tvseriesapplevel3.data.remote.model.episodesModels.EpisodesModel
+import com.berkerdgn.tvseriesapplevel3.data.remote.model.peopleModels.PeopleModel
 import com.berkerdgn.tvseriesapplevel3.data.remote.model.searchModels.SearchTvSeriesModels
 import com.berkerdgn.tvseriesapplevel3.data.remote.model.tvSeriesModels.TvSeriesModels
 import com.berkerdgn.tvseriesapplevel3.util.Resource
@@ -112,6 +113,39 @@ class TvSeriesRepositoryImpl @Inject constructor(
                 Resource.error(e.localizedMessage, data = null)
             }
         }
+
+    override suspend fun getPeople(idPeople: String): Resource<PeopleModel> =
+        withContext(Dispatchers.IO){
+            return@withContext try {
+                val response = tvSeriesApi.getPeople(idPeople)
+                if (response.isSuccessful){
+                    response.body()?.let {
+                        return@let Resource.success(it)
+                    }?: Resource.error("Error",data = null)
+                }else{
+                    Resource.error("Error",data = null)
+                }
+            }catch (e:Exception){
+                Resource.error(e.localizedMessage,data = null)
+            }
+        }
+
+    override suspend fun getEpisode(idEpisode: String): Resource<EpisodesModel> =
+        withContext(Dispatchers.IO){
+            return@withContext try {
+                val response = tvSeriesApi.getEpisode(idEpisode)
+                if (response.isSuccessful){
+                    response.body()?.let {
+                        return@let Resource.success(it)
+                    }?: Resource.error("Error",data = null)
+                }else{
+                    Resource.error("Error",data = null)
+                }
+            }catch (e:Exception){
+                Resource.error(e.localizedMessage,data = null)
+            }
+        }
+
 
 }
 

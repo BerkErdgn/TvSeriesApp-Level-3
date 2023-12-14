@@ -9,6 +9,7 @@ import com.berkerdgn.tvseriesapplevel3.presentation.information_screen.OneTvSeri
 import com.berkerdgn.tvseriesapplevel3.presentation.information_screen.adapter.CastAdapter
 import com.berkerdgn.tvseriesapplevel3.presentation.information_screen.adapter.CrewAdapter
 import com.berkerdgn.tvseriesapplevel3.presentation.information_screen.adapter.SeasonsAdapter
+import com.berkerdgn.tvseriesapplevel3.presentation.people_screen.PeopleFragment
 import com.berkerdgn.tvseriesapplevel3.presentation.search_screen.adapter.SearchTvSeriesAdapter
 import com.berkerdgn.tvseriesapplevel3.presentation.second_main_screen.SecondMainFragment
 import com.bumptech.glide.RequestManager
@@ -31,6 +32,7 @@ class TvSeriesFragmentFactory @Inject constructor(
             HomeFragment::class.java.name -> HomeFragment(todayTvSeriesAdapter,allTvSeriesAdapter)
             SecondMainFragment::class.java.name -> SecondMainFragment(todayTvSeriesAdapter,allTvSeriesAdapter,searchTvSeriesAdapter)
             OneTvSeriesFragment::class.java.name -> OneTvSeriesFragment(castAdapter, crewAdapter, seasonsAdapter, glide)
+            PeopleFragment::class.java.name -> PeopleFragment(glide)
             else -> {
                 super.instantiate(classLoader, className)
             }
