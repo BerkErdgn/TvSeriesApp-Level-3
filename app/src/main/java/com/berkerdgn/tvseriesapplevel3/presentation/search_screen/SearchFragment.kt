@@ -71,12 +71,15 @@ class SearchFragment @Inject constructor(
         searchViewModel.searchTvSeriesList.observe(viewLifecycleOwner){
             when(it.status){
                 Status.SUCCESS ->{
+                    binding.progressBar5.visibility = View.GONE
                     searchTvSeriesAdapter.searchTvSeriesList = it.data!!
                 }
                 Status.LOADING ->{
+                    binding.progressBar5.visibility = View.VISIBLE
                     println(it.status)
                 }
                 Status.ERROR ->{
+                    binding.progressBar5.visibility = View.VISIBLE
                     println(it.message)
                 }
             }

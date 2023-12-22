@@ -57,6 +57,7 @@ class PeopleFragment @Inject constructor(
         peopleViewModel.people.observe(viewLifecycleOwner){
             when(it.status){
                 Status.SUCCESS -> {
+                    binding.progressBar4.visibility = View.GONE
                     val people = it.data!!
 
                     try {
@@ -72,10 +73,10 @@ class PeopleFragment @Inject constructor(
                     }catch (e:Exception) { println(e.localizedMessage) }
                 }
                 Status.ERROR -> {
-
+                    binding.progressBar4.visibility = View.VISIBLE
                 }
                 Status.LOADING -> {
-
+                    binding.progressBar4.visibility = View.VISIBLE
                 }
             }
         }

@@ -1,5 +1,6 @@
 package com.berkerdgn.tvseriesapplevel3.presentation.home_screen
 
+import android.opengl.Visibility
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -125,13 +126,14 @@ class HomeFragment @Inject constructor(
         allTvSeriesViewModel.allTvSeriesList.observe(viewLifecycleOwner){
             when(it.status){
                 Status.SUCCESS->{
+                    binding.progressBar.visibility = View.GONE
                     allTvSeriesAdapter.allTvShowList = it.data!!
                 }
                 Status.ERROR->{
-                    println(it.message)
+                    binding.progressBar.visibility = View.VISIBLE
                 }
                 Status.LOADING->{
-                    println("")
+                    binding.progressBar.visibility = View.VISIBLE
                 }
             }
         }
@@ -142,15 +144,16 @@ class HomeFragment @Inject constructor(
         allTvSeriesViewModel.todayTvSeriesList.observe(viewLifecycleOwner){
             when(it.status){
                 Status.SUCCESS->{
+                    binding.progressBar.visibility = View.GONE
                     todayTvSeriesAdapter.todayTvSeriesList = it.data!!
                     todayTvSeriesList = it.data!!
                     println(it.data)
                 }
                 Status.ERROR->{
-                    println(it.message)
+                    binding.progressBar.visibility = View.VISIBLE
                 }
                 Status.LOADING->{
-                    println("")
+                    binding.progressBar.visibility = View.VISIBLE
                 }
             }
         }
