@@ -3,11 +3,13 @@ package com.berkerdgn.tvseriesapplevel3.presentation.information_screen.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.berkerdgn.tvseriesapplevel3.data.remote.model.crewModels.CrewModelItem
 import com.berkerdgn.tvseriesapplevel3.databinding.PersonRawBinding
+import com.berkerdgn.tvseriesapplevel3.presentation.information_screen.OneTvSeriesFragmentDirections
 import com.bumptech.glide.RequestManager
 import javax.inject.Inject
 
@@ -49,6 +51,11 @@ class CrewAdapter @Inject constructor(
 
         design.firstNameTextView.text = onePerson.person.name
         design.secondNameTextView.text = onePerson.person.name
+
+        design.personConstraintLayout.setOnClickListener {
+            val action = OneTvSeriesFragmentDirections.actionOneTvSeriesFragmentToPeopleFragment(onePerson.person.id.toString())
+            Navigation.findNavController(it).navigate(action)
+        }
 
         try {
             glide.load(onePerson.person.image.medium).into(design.imageView)

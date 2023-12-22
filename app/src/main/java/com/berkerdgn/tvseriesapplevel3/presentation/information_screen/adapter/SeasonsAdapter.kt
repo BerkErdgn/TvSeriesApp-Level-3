@@ -2,11 +2,13 @@ package com.berkerdgn.tvseriesapplevel3.presentation.information_screen.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.berkerdgn.tvseriesapplevel3.data.remote.model.episodesModels.EpisodesModelItem
 import com.berkerdgn.tvseriesapplevel3.databinding.SeasonsRecyclerRawBinding
+import com.berkerdgn.tvseriesapplevel3.presentation.information_screen.OneTvSeriesFragmentDirections
 import com.bumptech.glide.RequestManager
 import javax.inject.Inject
 
@@ -52,6 +54,11 @@ class SeasonsAdapter @Inject constructor(
         val oneSeason = seasonsList[position]
 
         design.seasonsNameTextView10.text = oneSeason.name
+
+        design.seasonsConstraintLayout.setOnClickListener {
+            val action = OneTvSeriesFragmentDirections.actionOneTvSeriesFragmentToEpisodeFragment(oneSeason.id.toString())
+            Navigation.findNavController(it).navigate(action)
+        }
 
         try {
             glide.load(oneSeason.image.medium).into(design.seasonsImageView)

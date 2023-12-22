@@ -6,6 +6,7 @@ import com.berkerdgn.tvseriesapplevel3.data.remote.TvSeriesApi
 import com.berkerdgn.tvseriesapplevel3.data.remote.model.allTvModels.AllTvSeriesModels
 import com.berkerdgn.tvseriesapplevel3.data.remote.model.crewModels.CrewModel
 import com.berkerdgn.tvseriesapplevel3.data.remote.model.episodesModels.EpisodesModel
+import com.berkerdgn.tvseriesapplevel3.data.remote.model.oneEpisodesModels.OneEpisodesModel
 import com.berkerdgn.tvseriesapplevel3.data.remote.model.peopleModels.PeopleModel
 import com.berkerdgn.tvseriesapplevel3.data.remote.model.searchModels.SearchTvSeriesModels
 import com.berkerdgn.tvseriesapplevel3.data.remote.model.tvSeriesModels.TvSeriesModels
@@ -130,7 +131,7 @@ class TvSeriesRepositoryImpl @Inject constructor(
             }
         }
 
-    override suspend fun getEpisode(idEpisode: String): Resource<EpisodesModel> =
+    override suspend fun getEpisode(idEpisode: String): Resource<OneEpisodesModel> =
         withContext(Dispatchers.IO){
             return@withContext try {
                 val response = tvSeriesApi.getEpisode(idEpisode)

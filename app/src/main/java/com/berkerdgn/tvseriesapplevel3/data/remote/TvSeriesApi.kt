@@ -5,6 +5,7 @@ package com.berkerdgn.tvseriesapplevel3.data.remote
 import com.berkerdgn.tvseriesapplevel3.data.remote.model.allTvModels.AllTvSeriesModels
 import com.berkerdgn.tvseriesapplevel3.data.remote.model.crewModels.CrewModel
 import com.berkerdgn.tvseriesapplevel3.data.remote.model.episodesModels.EpisodesModel
+import com.berkerdgn.tvseriesapplevel3.data.remote.model.oneEpisodesModels.OneEpisodesModel
 import com.berkerdgn.tvseriesapplevel3.data.remote.model.peopleModels.PeopleModel
 import com.berkerdgn.tvseriesapplevel3.data.remote.model.searchModels.SearchTvSeriesModels
 import com.berkerdgn.tvseriesapplevel3.data.remote.model.todayModels.TodaysTvSeriesModels
@@ -51,6 +52,6 @@ interface TvSeriesApi {
     suspend fun getPeople(@Path("idPeople")idPeople:String): Response<PeopleModel>
 
     @GET("episodes/{idEpisode}")
-    suspend fun getEpisode(@Path("idEpisode")idEpisode:String): Response<EpisodesModel>
+    suspend fun getEpisode(@Path("idEpisode")idEpisode:String): Response<OneEpisodesModel>
 
 }
