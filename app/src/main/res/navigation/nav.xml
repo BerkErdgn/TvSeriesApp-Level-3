@@ -126,7 +126,11 @@
         android:id="@+id/episodeFragment"
         android:name="com.berkerdgn.tvseriesapplevel3.presentation.episode_screen.EpisodeFragment"
         android:label="fragment_episode"
-        tools:layout="@layout/fragment_episode" />
+        tools:layout="@layout/fragment_episode" >
+        <argument
+            android:name="idEpisode"
+            app:argType="string" />
+    </fragment>
     <fragment
         android:id="@+id/peopleFragment"
         android:name="com.berkerdgn.tvseriesapplevel3.presentation.people_screen.PeopleFragment"

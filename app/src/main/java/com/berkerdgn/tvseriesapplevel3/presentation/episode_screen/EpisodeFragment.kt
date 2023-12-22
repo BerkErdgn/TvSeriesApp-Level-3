@@ -5,29 +5,28 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.berkerdgn.tvseriesapplevel3.R
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.get
+import androidx.navigation.fragment.navArgs
+import com.berkerdgn.tvseriesapplevel3.data.remote.model.episodesModels.EpisodesModel
+import com.berkerdgn.tvseriesapplevel3.databinding.FragmentEpisodeBinding
+import com.berkerdgn.tvseriesapplevel3.presentation.episode_screen.view_model.EpisodeViewModel
+import com.berkerdgn.tvseriesapplevel3.util.Status
+import com.bumptech.glide.RequestManager
+import javax.inject.Inject
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+class EpisodeFragment @Inject constructor(
+    private val glide : RequestManager
+) : Fragment() {
 
-/**
- * A simple [Fragment] subclass.
- * Use the [EpisodeFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class EpisodeFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    private var _binding : FragmentEpisodeBinding ?= null
+    private val binding get() = _binding!!
+
+    private lateinit var episodeViewModel : EpisodeViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+
     }
 
     override fun onCreateView(
@@ -35,26 +34,50 @@ class EpisodeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_episode, container, false)
+        _binding = FragmentEpisodeBinding.inflate(inflater,container,false)
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment EpisodeFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            EpisodeFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        episodeViewModel = ViewModelProvider(requireActivity()).get(EpisodeViewModel::class.java)
+
+        val bundle : EpisodeFragmentArgs by navArgs()
+        val idEpisode = bundle.idEpisode
+
+        observeLiveDataForEpisode(idEpisode)
+
+
+
+    }
+
+    private fun observeLiveDataForEpisode(idEpisode:String){
+        episodeViewModel.getEpisode(idEpisode)
+        episodeViewModel.episode.observe(viewLifecycleOwner){
+            when(it.status){
+                Status.SUCCESS -> {
+                    val episode = it.data!!
+                    glide.load(episode.id).into(binding.imageView3)
+                    binding.episodeNameTextView.text = episode.name
+                    binding.seasonTextView.text = episode.season.toString()
+                    binding.ratingTextView.text = episode.rating.average.toString()
+                    binding.dateTextView.text = episode.airdate
+                    binding.timeTextView.text = episode.airtime
+                    binding.runtimeTextView16.text = episode.runtime.toString()
+                    binding.summaryTextView.text = episode.summary
+                }
+                Status.ERROR -> {
+
+                }
+                Status.LOADING -> {
+
                 }
             }
+        }
+
+
+
     }
+
 }

@@ -3,6 +3,7 @@ package com.berkerdgn.tvseriesapplevel3.data.repository
 import com.berkerdgn.tvseriesapplevel3.data.remote.model.allTvModels.AllTvSeriesModels
 import com.berkerdgn.tvseriesapplevel3.data.remote.model.crewModels.CrewModel
 import com.berkerdgn.tvseriesapplevel3.data.remote.model.episodesModels.EpisodesModel
+import com.berkerdgn.tvseriesapplevel3.data.remote.model.oneEpisodesModels.OneEpisodesModel
 import com.berkerdgn.tvseriesapplevel3.data.remote.model.peopleModels.PeopleModel
 import com.berkerdgn.tvseriesapplevel3.data.remote.model.searchModels.SearchTvSeriesModels
 import com.berkerdgn.tvseriesapplevel3.data.remote.model.todayModels.TodaysTvSeriesModels
@@ -26,6 +27,6 @@ interface TvSeriesRepository {
 
     suspend fun getPeople(idPeople: String): Resource<PeopleModel>
 
-    suspend fun getEpisode(idEpisode:String): Resource<EpisodesModel>
+    suspend fun getEpisode(idEpisode:String): Resource<OneEpisodesModel>
 
 }
