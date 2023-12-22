@@ -17,7 +17,19 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:src="@tools:sample/avatars" />
 
+    <ProgressBar
+        android:id="@+id/progressBar3"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminateTint="@color/custom_yellow"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ScrollView
+        android:id="@+id/scrollView3"
         android:layout_width="match_parent"
         android:layout_height="423dp"
         android:layout_marginBottom="10dp"
@@ -29,33 +41,32 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/oneTvSeriesNameTextView"
-                android:gravity="center"
-                android:textSize="26sp"
-                android:textColor="@color/white"
-                android:fontFamily="serif"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Tv Serieas Name" />
+                android:fontFamily="serif"
+                android:gravity="center"
+                android:text="Tv Serieas Name"
+                android:textColor="@color/white"
+                android:textSize="26sp" />
 
             <TextView
                 android:id="@+id/conceptTextView11"
-                android:textSize="12sp"
-                android:gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="concept" />
-
+                android:gravity="center"
+                android:text="concept"
+                android:textSize="12sp" />
 
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:backgroundTint="@color/custom_transparent" >
+                android:backgroundTint="@color/custom_transparent">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -73,9 +84,9 @@
                             android:id="@+id/textView14"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:gravity="center"
                             android:layout_marginTop="7dp"
                             android:layout_marginBottom="7dp"
+                            android:gravity="center"
                             android:text="Information"
                             android:textColor="@color/custom_yellow"
                             android:textSize="18sp"
@@ -112,9 +123,9 @@
                                         android:id="@+id/textView12"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:textColor="@color/custom_white"
                                         android:drawableStart="@drawable/imdb_svgrepo_com"
-                                        android:text=" IMDB : " />
+                                        android:text=" IMDB : "
+                                        android:textColor="@color/custom_white" />
 
                                     <TextView
                                         android:id="@+id/imdbTextView13"
@@ -133,8 +144,8 @@
                                         android:id="@+id/TextView16"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:textColor="@color/custom_white"
-                                        android:text="Genres : " />
+                                        android:text="Genres : "
+                                        android:textColor="@color/custom_white" />
 
                                     <TextView
                                         android:id="@+id/genresTextView13"
@@ -153,8 +164,8 @@
                                         android:id="@+id/TextView17"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:textColor="@color/custom_white"
-                                        android:text="Status : " />
+                                        android:text="Status : "
+                                        android:textColor="@color/custom_white" />
 
                                     <TextView
                                         android:id="@+id/statusTextView"
@@ -173,8 +184,8 @@
                                         android:id="@+id/TextView18"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:textColor="@color/custom_white"
-                                        android:text="Runtime : " />
+                                        android:text="Runtime : "
+                                        android:textColor="@color/custom_white" />
 
                                     <TextView
                                         android:id="@+id/runtimeTextView"
@@ -202,8 +213,8 @@
                                         android:id="@+id/textView19"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:textColor="@color/custom_white"
-                                        android:text="Schedule : " />
+                                        android:text="Schedule : "
+                                        android:textColor="@color/custom_white" />
 
                                     <TextView
                                         android:id="@+id/scheduleTextView"
@@ -222,8 +233,8 @@
                                         android:id="@+id/textView20"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:textColor="@color/custom_white"
-                                        android:text="Premiered : " />
+                                        android:text="Premiered : "
+                                        android:textColor="@color/custom_white" />
 
                                     <TextView
                                         android:id="@+id/premieredTextView"
@@ -242,8 +253,8 @@
                                         android:id="@+id/textView21"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:textColor="@color/custom_white"
-                                        android:text="Ended : " />
+                                        android:text="Ended : "
+                                        android:textColor="@color/custom_white" />
 
                                     <TextView
                                         android:id="@+id/endedTextView"
@@ -262,8 +273,8 @@
                                         android:id="@+id/textView22"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:textColor="@color/custom_white"
-                                        android:text="Language : " />
+                                        android:text="Language : "
+                                        android:textColor="@color/custom_white" />
 
                                     <TextView
                                         android:id="@+id/languageTextView"
@@ -271,7 +282,6 @@
                                         android:layout_height="wrap_content"
                                         android:text="" />
                                 </LinearLayout>
-
 
 
                             </LinearLayout>
@@ -286,72 +296,71 @@
             </androidx.cardview.widget.CardView>
 
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:orientation="vertical">
 
-                <LinearLayout
+                <TextView
+                    android:id="@+id/textView15"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_margin="5dp">
+                    android:text="Seasons"
+                    android:textColor="@color/custom_white"
+                    android:textSize="18sp" />
 
-                    <TextView
-                        android:id="@+id/textView15"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textSize="18sp"
-                        android:textColor="@color/custom_white"
-                        android:text="Seasons" />
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/seasonsRecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
 
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/seasonsRecyclerView"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
-
-                </LinearLayout>
+            </LinearLayout>
 
 
-                <LinearLayout
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView30"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_margin="5dp">
+                    android:text="Cast"
+                    android:textColor="@color/custom_white"
+                    android:textSize="18sp" />
 
-                    <TextView
-                        android:id="@+id/textView30"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textSize="18sp"
-                        android:textColor="@color/custom_white"
-                        android:text="Cast" />
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/castRecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
 
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/castRecyclerView"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
-
-                </LinearLayout>
+            </LinearLayout>
 
 
-                <LinearLayout
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView31"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_margin="5dp">
+                    android:text="Crew"
+                    android:textColor="@color/custom_white"
+                    android:textSize="18sp" />
 
-                    <TextView
-                        android:id="@+id/textView31"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textSize="18sp"
-                        android:textColor="@color/custom_white"
-                        android:text="Crew" />
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/crewRecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp" />
 
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/crewRecyclerView"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="5dp"/>
-
-                </LinearLayout>
+            </LinearLayout>
 
 
         </LinearLayout>

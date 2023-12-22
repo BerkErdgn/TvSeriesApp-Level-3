@@ -57,6 +57,7 @@ class EpisodeFragment @Inject constructor(
         episodeViewModel.episode.observe(viewLifecycleOwner){
             when(it.status){
                 Status.SUCCESS -> {
+                    binding.progressBar2.visibility = View.GONE
                     val episode = it.data!!
                     glide.load(episode.id).into(binding.imageView3)
                     binding.episodeNameTextView.text = episode.name
@@ -68,10 +69,10 @@ class EpisodeFragment @Inject constructor(
                     binding.summaryTextView.text = episode.summary
                 }
                 Status.ERROR -> {
-
+                    binding.progressBar2.visibility = View.VISIBLE
                 }
                 Status.LOADING -> {
-
+                    binding.progressBar2.visibility = View.VISIBLE
                 }
             }
         }

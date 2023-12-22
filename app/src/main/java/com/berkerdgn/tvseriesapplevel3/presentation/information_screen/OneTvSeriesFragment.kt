@@ -76,13 +76,14 @@ class OneTvSeriesFragment @Inject constructor(
         oneTvSeriesViewModel.onTvSeries.observe(viewLifecycleOwner) {
             when(it.status){
                 Status.SUCCESS->{
+                    binding.progressBar3.visibility = View.GONE
                     placeAllInformationPut(it.data!!)
                 }
                 Status.LOADING->{
-
+                    binding.progressBar3.visibility = View.VISIBLE
                 }
                 Status.ERROR->{
-
+                    binding.progressBar3.visibility = View.VISIBLE
                 }
             }
         }
@@ -93,13 +94,14 @@ class OneTvSeriesFragment @Inject constructor(
         oneTvSeriesViewModel.onTvShowEpisodesList.observe(viewLifecycleOwner){
             when(it.status){
                 Status.SUCCESS ->{
+                    binding.progressBar3.visibility = View.GONE
                     seasonsAdapter.seasonsList= it.data!!
                 }
                 Status.LOADING->{
-
+                    binding.progressBar3.visibility = View.VISIBLE
                 }
                 Status.ERROR->{
-
+                    binding.progressBar3.visibility = View.VISIBLE
                 }
             }
         }
@@ -110,13 +112,14 @@ class OneTvSeriesFragment @Inject constructor(
         oneTvSeriesViewModel.oneTvSeriesCrewList.observe(viewLifecycleOwner){
             when(it.status){
                 Status.SUCCESS->{
+                    binding.progressBar3.visibility = View.GONE
                     crewAdapter.crewList= it.data!!
                 }
                 Status.LOADING->{
-
+                    binding.progressBar3.visibility = View.VISIBLE
                 }
                 Status.ERROR->{
-
+                    binding.progressBar3.visibility = View.VISIBLE
                 }
             }
         }
