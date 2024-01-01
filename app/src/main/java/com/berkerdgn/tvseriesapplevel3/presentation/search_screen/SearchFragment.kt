@@ -44,6 +44,8 @@ class SearchFragment @Inject constructor(
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.progressBar5.visibility = View.GONE
+
         searchViewModel = ViewModelProvider(requireActivity()).get(SearchViewModel::class.java)
 
         binding.searchTvSeriesRecyclerView.layoutManager = StaggeredGridLayoutManager(3,StaggeredGridLayoutManager.VERTICAL)

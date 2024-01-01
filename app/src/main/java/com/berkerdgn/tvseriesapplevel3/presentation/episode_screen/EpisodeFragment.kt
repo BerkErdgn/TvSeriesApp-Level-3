@@ -59,7 +59,9 @@ class EpisodeFragment @Inject constructor(
                 Status.SUCCESS -> {
                     binding.progressBar2.visibility = View.GONE
                     val episode = it.data!!
-                    glide.load(episode.id).into(binding.imageView3)
+                    try {
+                        glide.load(episode.image.original).into(binding.imageView3)
+                    }catch (e:Exception){}
                     binding.episodeNameTextView.text = episode.name
                     binding.seasonTextView.text = episode.season.toString()
                     binding.ratingTextView.text = episode.rating.average.toString()

@@ -74,6 +74,9 @@
         <action
             android:id="@+id/action_secondMainFragment_to_oneTvSeriesFragment"
             app:destination="@id/oneTvSeriesFragment" />
+        <action
+            android:id="@+id/action_secondMainFragment_to_addPostScreenFragment"
+            app:destination="@id/addPostScreenFragment" />
     </fragment>
     <fragment
         android:id="@+id/homeFragment"
@@ -139,5 +142,14 @@
         <argument
             android:name="idPeople"
             app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/addPostScreenFragment"
+        android:name="com.berkerdgn.tvseriesapplevel3.presentation.add_post_screen.AddPostScreenFragment"
+        android:label="fragment_add_post_screen"
+        tools:layout="@layout/fragment_add_post_screen" >
+        <action
+            android:id="@+id/action_addPostScreenFragment_to_secondMainFragment"
+            app:destination="@id/secondMainFragment" />
     </fragment>
 </navigation>

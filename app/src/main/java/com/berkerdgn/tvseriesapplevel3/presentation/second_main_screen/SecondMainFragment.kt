@@ -13,6 +13,7 @@ import com.berkerdgn.tvseriesapplevel3.presentation.home_screen.adapter.TodayTvS
 import com.berkerdgn.tvseriesapplevel3.presentation.search_screen.SearchFragment
 import com.berkerdgn.tvseriesapplevel3.presentation.search_screen.adapter.SearchTvSeriesAdapter
 import com.berkerdgn.tvseriesapplevel3.presentation.social_screen.SocialFragment
+import com.berkerdgn.tvseriesapplevel3.presentation.social_screen.adapter.PostAdapter
 import com.berkerdgn.tvseriesapplevel3.presentation.user_screen.UserFragment
 import com.bumptech.glide.RequestManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -23,7 +24,7 @@ import javax.inject.Inject
 class SecondMainFragment @Inject constructor(
     private val todayTvSeriesAdapter : TodayTvSeriesAdapter,
     private val allTvSeriesAdapter: AllTvSeriesAdapter,
-    private val searchTvSeriesAdapter: SearchTvSeriesAdapter
+    private val searchTvSeriesAdapter: SearchTvSeriesAdapter,
 ) : Fragment() {
 
     private  var _binding : FragmentSecondMainBinding ?= null

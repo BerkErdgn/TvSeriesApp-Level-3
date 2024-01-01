@@ -1,8 +1,10 @@
 package com.berkerdgn.tvseriesapplevel3.data.repository
 
+import androidx.lifecycle.MutableLiveData
 import com.berkerdgn.tvseriesapplevel3.data.remote.model.allTvModels.AllTvSeriesModels
 import com.berkerdgn.tvseriesapplevel3.data.remote.model.crewModels.CrewModel
 import com.berkerdgn.tvseriesapplevel3.data.remote.model.episodesModels.EpisodesModel
+import com.berkerdgn.tvseriesapplevel3.data.remote.model.for_firebase_model.PostsModel
 import com.berkerdgn.tvseriesapplevel3.data.remote.model.oneEpisodesModels.OneEpisodesModel
 import com.berkerdgn.tvseriesapplevel3.data.remote.model.peopleModels.PeopleModel
 import com.berkerdgn.tvseriesapplevel3.data.remote.model.searchModels.SearchTvSeriesModels
@@ -28,5 +30,9 @@ interface TvSeriesRepository {
     suspend fun getPeople(idPeople: String): Resource<PeopleModel>
 
     suspend fun getEpisode(idEpisode:String): Resource<OneEpisodesModel>
+
+    fun getPosts(): MutableLiveData<List<PostsModel>>
+
+    fun uploadPosts(comment: String,date: String,tvSeriesName:String,userEmail:String)
 
 }

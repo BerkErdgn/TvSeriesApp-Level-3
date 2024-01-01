@@ -2,12 +2,16 @@ package com.berkerdgn.tvseriesapplevel3.dependinciyinjection
 
 import android.content.Context
 import com.berkerdgn.tvseriesapplevel3.R
+import com.berkerdgn.tvseriesapplevel3.data.remote.PostDataSource
 import com.berkerdgn.tvseriesapplevel3.data.remote.TvSeriesApi
 import com.berkerdgn.tvseriesapplevel3.data.repository.TvSeriesRepository
 import com.berkerdgn.tvseriesapplevel3.data.repository.TvSeriesRepositoryImpl
 import com.berkerdgn.tvseriesapplevel3.util.Constants.BASE_URL
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import com.google.firebase.Firebase
+import com.google.firebase.firestore.CollectionReference
+import com.google.firebase.firestore.firestore
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -25,8 +29,8 @@ object AppModule {
 
     @Singleton
     @Provides
-    fun provideTvSeriesRepository(tvSeriesApi: TvSeriesApi): TvSeriesRepository{
-        return TvSeriesRepositoryImpl(tvSeriesApi)
+    fun provideTvSeriesRepository(tvSeriesApi: TvSeriesApi, pds:PostDataSource): TvSeriesRepository{
+        return TvSeriesRepositoryImpl(tvSeriesApi,pds)
     }
 
     @Singleton
@@ -46,5 +50,21 @@ object AppModule {
             RequestOptions().placeholder(R.drawable.ic_launcher_foreground)
                 .error(R.drawable.ic_launcher_foreground)
         )
+
+
+    //for firebase
+
+    @Singleton
+    @Provides
+    fun providePostsDataSource(collectionPost: CollectionReference): PostDataSource{
+        return PostDataSource(collectionPost)
+    }
+
+    @Singleton
+    @Provides
+    fun provideCollectionReference(): CollectionReference{
+        return Firebase.firestore.collection("Posts")
+    }
+
 
 }

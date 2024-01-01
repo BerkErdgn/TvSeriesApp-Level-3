@@ -1,11 +1,14 @@
 package com.berkerdgn.tvseriesapplevel3.data.repository
 
 
+import androidx.lifecycle.MutableLiveData
+import com.berkerdgn.tvseriesapplevel3.data.remote.PostDataSource
 import com.berkerdgn.tvseriesapplevel3.data.remote.model.todayModels.TodaysTvSeriesModels
 import com.berkerdgn.tvseriesapplevel3.data.remote.TvSeriesApi
 import com.berkerdgn.tvseriesapplevel3.data.remote.model.allTvModels.AllTvSeriesModels
 import com.berkerdgn.tvseriesapplevel3.data.remote.model.crewModels.CrewModel
 import com.berkerdgn.tvseriesapplevel3.data.remote.model.episodesModels.EpisodesModel
+import com.berkerdgn.tvseriesapplevel3.data.remote.model.for_firebase_model.PostsModel
 import com.berkerdgn.tvseriesapplevel3.data.remote.model.oneEpisodesModels.OneEpisodesModel
 import com.berkerdgn.tvseriesapplevel3.data.remote.model.peopleModels.PeopleModel
 import com.berkerdgn.tvseriesapplevel3.data.remote.model.searchModels.SearchTvSeriesModels
@@ -17,7 +20,8 @@ import javax.inject.Inject
 
 
 class TvSeriesRepositoryImpl @Inject constructor(
-    private val tvSeriesApi: TvSeriesApi
+    private val tvSeriesApi: TvSeriesApi,
+    private val pds: PostDataSource
 ) : TvSeriesRepository {
     override suspend fun getAllTvSeries(): Resource<AllTvSeriesModels> =
         withContext(Dispatchers.IO){
@@ -146,6 +150,19 @@ class TvSeriesRepositoryImpl @Inject constructor(
                 Resource.error(e.localizedMessage,data = null)
             }
         }
+
+    override fun getPosts(): MutableLiveData<List<PostsModel>> {
+        return pds.getPosts()
+    }
+
+    override fun uploadPosts(
+        comment: String,
+        date: String,
+        tvSeriesName: String,
+        userEmail: String
+    ) {
+        pds.uploadPosts(comment, date, tvSeriesName, userEmail)
+    }
 
 
 }
