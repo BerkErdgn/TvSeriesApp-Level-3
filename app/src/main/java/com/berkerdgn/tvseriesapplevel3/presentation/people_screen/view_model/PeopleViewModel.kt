@@ -6,11 +6,13 @@ import androidx.lifecycle.ViewModel
 import com.berkerdgn.tvseriesapplevel3.data.remote.model.peopleModels.PeopleModel
 import com.berkerdgn.tvseriesapplevel3.data.repository.TvSeriesRepositoryImpl
 import com.berkerdgn.tvseriesapplevel3.util.Resource
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+@HiltViewModel
 class PeopleViewModel @Inject constructor(
     private val tvSeriesRepositoryImpl: TvSeriesRepositoryImpl
 ) : ViewModel() {
