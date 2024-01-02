@@ -15,7 +15,28 @@ class PostDataSource (var collectionPost: CollectionReference){
                 for (d in value.documents){
                     val post = d.toObject(PostsModel::class.java)
                     if (post != null){
+                        post.id = d.id
                         list.add(post)
+                    }
+                }
+                postsList.value = list
+            }
+        }
+        return postsList
+    }
+
+    fun getPersonalPost(user: String): MutableLiveData<List<PostsModel>>{
+        collectionPost.addSnapshotListener { value, error ->
+            if(value !=null){
+                val list = ArrayList<PostsModel>()
+                for (d in value.documents){
+                    val post = d.toObject(PostsModel::class.java)
+                    if (post != null){
+                        if(post.userEmail == user){
+                            post.id = d.id
+                            list.add(post)
+                        }
+
                     }
                 }
                 postsList.value = list
@@ -26,8 +47,12 @@ class PostDataSource (var collectionPost: CollectionReference){
 
 
     fun uploadPosts(comment: String,date: String,tvSeriesName:String,userEmail:String){
-        val newPost = PostsModel(comment, date, tvSeriesName, userEmail)
+        val newPost = PostsModel("",comment, date, tvSeriesName, userEmail)
         collectionPost.document().set(newPost)
+    }
+
+    fun deletePost(id: String){
+        collectionPost.document(id).delete()
     }
 
 

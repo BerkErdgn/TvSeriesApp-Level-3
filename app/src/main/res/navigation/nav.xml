@@ -77,6 +77,11 @@
         <action
             android:id="@+id/action_secondMainFragment_to_addPostScreenFragment"
             app:destination="@id/addPostScreenFragment" />
+        <action
+            android:id="@+id/action_secondMainFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/secondMainFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/homeFragment"
