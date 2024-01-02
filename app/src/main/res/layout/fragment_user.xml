@@ -34,12 +34,12 @@
         android:id="@+id/likedTvSeriesTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="48dp"
         android:text="10 | Liked Tv Series"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.076"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/userImageView" />
+        app:layout_constraintTop_toBottomOf="@+id/logoutButton" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/likedTvSeriesRecyclerView"
@@ -71,7 +71,7 @@
         app:layout_constraintTop_toBottomOf="@+id/socialTextView" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/logoutButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"

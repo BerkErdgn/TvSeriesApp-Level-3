@@ -35,4 +35,8 @@ interface TvSeriesRepository {
 
     fun uploadPosts(comment: String,date: String,tvSeriesName:String,userEmail:String)
 
+    fun getPersonalPost(user: String): MutableLiveData<List<PostsModel>>
+
+    fun deletePost(id: String)
+
 }

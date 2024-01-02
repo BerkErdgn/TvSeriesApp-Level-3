@@ -155,6 +155,7 @@ class TvSeriesRepositoryImpl @Inject constructor(
         return pds.getPosts()
     }
 
+
     override fun uploadPosts(
         comment: String,
         date: String,
@@ -162,6 +163,14 @@ class TvSeriesRepositoryImpl @Inject constructor(
         userEmail: String
     ) {
         pds.uploadPosts(comment, date, tvSeriesName, userEmail)
+    }
+
+    override fun getPersonalPost(user: String): MutableLiveData<List<PostsModel>> {
+        return pds.getPersonalPost(user)
+    }
+
+    override fun deletePost(id: String) {
+        pds.deletePost(id)
     }
 
 
